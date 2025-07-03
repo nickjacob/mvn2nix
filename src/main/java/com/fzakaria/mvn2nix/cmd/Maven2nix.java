@@ -146,6 +146,11 @@ public class Maven2nix implements Callable<Integer> {
      */
     public static boolean doesUrlExist(URL url) {
         try {
+            // if the url is a file:// url, then we need to check if the file exists
+            if (url.getProtocol().equals("file")) {
+                return new File(url.getPath()).exists();
+            }
+
             URLConnection urlConnection = url.openConnection();
             if (!(urlConnection instanceof HttpURLConnection)) {
                 return false;

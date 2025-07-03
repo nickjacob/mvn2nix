@@ -2,11 +2,9 @@ package com.fzakaria.mvn2nix.model;
 
 import com.google.common.base.MoreObjects;
 
-import javax.annotation.concurrent.Immutable;
 import java.net.URL;
 import java.util.Objects;
 
-@Immutable
 public class MavenArtifact {
 
     private final URL url;
