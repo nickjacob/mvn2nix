@@ -1,5 +1,5 @@
 self: super: {
-  jdk = super.jdk23_headless;
+  jdk = super.jdk21_headless;
   mvn2nix = self.callPackage ./derivation.nix { };
   mvn2nix-bootstrap = self.callPackage ./derivation.nix { bootstrap = true; };
   buildMavenRepository = (self.callPackage ./maven.nix { }).buildMavenRepository;
