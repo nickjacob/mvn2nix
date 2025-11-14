@@ -4,3 +4,4 @@ target/
 result
 result-2
 .direnv/
+node_modules

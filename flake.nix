@@ -40,10 +40,12 @@
 
       devShells.default = legacyPackages.mkShell (
         let
+          _jdk = legacyPackages.jdk21_headless;
           gh-md-toc-source = legacyPackages.fetchurl {
             url = "https://raw.githubusercontent.com/ekalinin/github-markdown-toc/master/gh-md-toc";
             sha256 = "sha256-nBL6/iwgHLu+r+xXe73F9FxYtTWM9mOkAj6m7Jp1yBw=";
           };
+
           gh-md-toc = legacyPackages.writeScriptBin "gh-md-toc" ''
             ${legacyPackages.runtimeShell} ${gh-md-toc-source} "$@"
           '';
@@ -52,7 +54,7 @@
           name = "mvn2nix-shell";
 
           buildInputs = with legacyPackages; [
-            jdk23_headless
+            _jdk
             maven
             gh-md-toc
             git
